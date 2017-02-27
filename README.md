@@ -1,6 +1,6 @@
 # Do you really?
 
-A static page that asks if you really want to visit *that* website.
+A static page that asks if you really want to visit *that* website. You can see how it looks like [here](https://lemonzi.github.io/doyoureally#facebook)
 
 It works together with a URL redirector like [Redirector](https://chrome.google.com/webstore/detail/redirector/pajiegeliagebegjdhebejdlknciafen). Create this rule for Facebook:
 
