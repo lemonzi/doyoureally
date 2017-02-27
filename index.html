@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Do you really...?</title>
+    <style>
+      body {
+        background-color: lightgrey;
+        text-align: center;
+        margin: 0 auto;
+        font-family: Arial;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: 6em;
+        padding: 1em;
+        width: 60%;
+        margin: 0 auto;
+      }
+      .site-name {
+        color: darkblue;
+      }
+      .button {
+        text-decoration: none;
+        padding: 2em;
+        margin: 0 3em;
+        background-color: white;
+        width: 30%;
+      }
+      .continue {
+        color: darkred;
+      }
+      .exit {
+        color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Do you really want to visit <span class="site-name">SITE</span> again?</h1>
+    <a class="exit button" href="https://google.com">Nah, thanks for checking!</a>
+    <a class="continue button" href="/">Yeah, it'll be quick</a>
+    <script>
+      var site = decodeURIComponent(location.hash.substr(1));
+      console.log("Trying to visit " + site);
+      var site_name, site_url;
+      if (site == "facebook") {
+        console.log("Applying facebook configuration...");
+        site_name = "Facebook";
+        site_url = "https://facebook.com?bypass";
+      }
+      document.getElementsByClassName("continue")[0].href = site_url;
+      document.getElementsByClassName("site-name")[0].innerHTML = site_name;
+    </script>
+  </body>
+</html>
+
