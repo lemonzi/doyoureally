@@ -3,53 +3,66 @@
     <title>Do you really...?</title>
     <style>
       body {
-        background-color: lightgrey;
+        background-image: url("background.jpg");
+        background-color: black;
         text-align: center;
         margin: 0 auto;
-        font-family: Arial;
-        font-weight: 600;
+        font-family: Verdana;
+        font-weight: 100;
+        color: white;
+        position: relative;
       }
-      h1 {
-        font-size: 4em;
-        padding: 1em;
-        max-width: 20em;
+      .content {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .title {
         margin: 0 auto;
-        margin-bottom: 6em;
+        padding: 0 1em;
+        font-size: 4em;
+        max-width: 15em;
+      }
+      .buttons {
+        margin: 0 auto;
+        margin-top: 3em;
       }
       .site-name {
-        color: darkblue;
+        font-weight: 800;
+        color: lightblue;
       }
       .button {
+        font-size: 1.5em;
         text-decoration: none;
-        padding: 2em;
-        margin: 0 3em;
-        background-color: white;
-        width: 30%;
+        padding: 1em;
+        margin: 1em;
+        background-color: #334444;
+        display: inline-block;
       }
       .continue {
-        color: darkred;
+        color: salmon;
       }
       .exit {
-        color: darkgreen;
+        color: lightgreen;
       }
     </style>
   </head>
   <body>
-    <h1>Do you really want to visit <span class="site-name">SITE</span> again?</h1>
-    <a class="exit button" href="https://google.com">Nah, thanks for checking!</a>
-    <a class="continue button" href="/">Yeah, it'll be quick</a>
+    <div class="content">
+      <div class="title">Do you really want to visit <span class="site-name">SITE</span> again?</div>
+      <div class="buttons">
+        <a class="exit button" href="https://google.com">Nah, thanks for checking!</a>
+        <a class="continue button" href="/">Yeah, it'll be quick</a>
+      </div>
+    </div>
     <script>
       var site = decodeURIComponent(location.hash.substr(1));
       console.log("Trying to visit " + site);
-      var site_name, site_url;
-      if (site.indexOf("facebook") != -1) {
-        console.log("Applying facebook configuration...");
-        site_name = "Facebook";
-        site_url = "https://facebook.com?bypass";
-      }
-      document.getElementsByClassName("continue")[0].href = site_url;
-      document.getElementsByClassName("site-name")[0].innerHTML = site_name;
+      document.getElementsByClassName("continue")[0].href = 
+        "https://" + site + ".com/?bypass";
+      document.getElementsByClassName("site-name")[0].innerHTML = site;
     </script>
   </body>
 </html>
-
